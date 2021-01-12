@@ -14,8 +14,10 @@ body {
 .app-container-mobile {
     height: 100%;
     z-index: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    position: relative;
+    overflow-y: none;
+    // overflow-x: hidden;
+    padding-top: 20px;
 }
 
 .link {

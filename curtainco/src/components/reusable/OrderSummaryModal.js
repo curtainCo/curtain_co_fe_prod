@@ -1,19 +1,19 @@
-import React from "react"
-import PurchasedItems from "../account/user/PurchasedItems"
-import { Grid, IconButton, Typography, Box, Container } from "@material-ui/core"
-import CloseIcon from "@material-ui/icons/Close"
-import useStyles from "./ModalStyles"
+import React from "react";
+import PurchasedItems from "../account/user/PurchasedItems";
+import { Grid, IconButton, Typography, Box, Container } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import useStyles from "./ModalStyles";
 
 function OrderSummaryModal({ data, handleClose }) {
-    let order = { ...data }
-    const classes = useStyles()
+    let order = { ...data };
+    const classes = useStyles();
 
     const items = order.items.map((orderItem) => (
         <PurchasedItems
             key={`productId-${orderItem.id}`}
             orderItem={orderItem}
         />
-    ))
+    ));
 
     return (
         <Container>
@@ -32,7 +32,7 @@ function OrderSummaryModal({ data, handleClose }) {
                         xs={10}
                     >
                         <Typography variant="h6" component="h6">
-                            Order #: {order._id}
+                            Order #: {order.paymentData.id}
                         </Typography>
                     </Grid>
                     <Grid item container justify="center" xs={2}>
@@ -49,7 +49,7 @@ function OrderSummaryModal({ data, handleClose }) {
                 </Grid>
             </Grid>
         </Container>
-    )
+    );
 }
 
-export default OrderSummaryModal
+export default OrderSummaryModal;

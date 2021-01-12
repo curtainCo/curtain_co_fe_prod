@@ -16,14 +16,21 @@ async function createOrder(newOrder) {
 // GET single order
 
 // PUT updated order
-async function markOrderProcessed(id, updatedOrder) {
-  const response = await api.patch(`/orders/${id}`, updatedOrder);
+async function updateOrder(id, updatedOrder) {
+  const response = await api.put(`/orders/${id}`, updatedOrder);
+  return response;
+}
+
+// DELETE single order
+async function deleteOrder(id) {
+  const response = await api.delete(`/orders/${id}`);
   return response;
 }
 
 export {
   getAllOrders,
   createOrder,
-  markOrderProcessed
+  updateOrder,
+  deleteOrder
 };
 

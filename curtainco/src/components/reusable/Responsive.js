@@ -1,10 +1,9 @@
-// PACKAGES
-// import { useMediaQuery } from "react-responsive"
+// STYLES
 import { useMediaQuery, useTheme } from "@material-ui/core"
 
 const Desktop = ({ children }) => {
     const theme = useTheme()
-    const isDesktop = useMediaQuery(theme.breakpoints.up("md"))
+    const isDesktop = useMediaQuery(theme.breakpoints.up("lg"))
     console.log({ isDesktop })
     return isDesktop ? children : null
 }

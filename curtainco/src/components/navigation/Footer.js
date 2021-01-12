@@ -87,9 +87,9 @@ export default function StickyFooter() {
                             <Grid item container justify="space-around" xs={12}>
                                 <Grid item container xs={6}>
                                     <img
-                                        src="/logo192.png"
+                                        src="/CurtainCoLogo192.png"
                                         alt="curtain co logo"
-                                        style={{ width: "50px" }}
+                                        style={{ width: "70px" }}
                                     />
                                 </Grid>
                                 <Grid
@@ -105,7 +105,11 @@ export default function StickyFooter() {
                                 </Grid>
                             </Grid>
                             <Grid item container justify="center">
-                                <Button>Request Consultation</Button>
+                                <Link to="/request" className={classes.link}>
+                                    <Button variant="outlined">
+                                        Request Consultation
+                                    </Button>
+                                </Link>
                             </Grid>
                             <Grid item container justify="space-around">
                                 <Grid item>privacy</Grid>

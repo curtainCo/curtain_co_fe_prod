@@ -5,8 +5,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     link: {
-        color: "#fff",
+        color: "black",
         textDecoration: "none",
+        width: "100%",
+        height: "100%",
     },
 
     footerRoot: {
@@ -43,6 +45,29 @@ const useStyles = makeStyles((theme) => ({
     footerDetailsCont: {
         width: "80%",
         margin: "0 auto",
+    },
+    mobileMenuItemText: {
+        color: "#F2511B",
+        fontFamily: "Roboto Slab",
+    },
+    sectionMobile: {
+        display: "flex",
+        [theme.breakpoints.up("md")]: {
+            display: "none",
+        },
+    },
+
+    appBar: {
+        top: "auto",
+        background: "transparent",
+        boxShadow: "none",
+        marginTop: "3%",
+        [theme.breakpoints.down("sm")]: {
+            marginTop: "0",
+            bottom: "3%",
+            width: "25%",
+        },
+        zIndex: 1000,
     },
 }))
 

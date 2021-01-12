@@ -1,15 +1,15 @@
-import React from "react"
-import { Grid, Typography } from "@material-ui/core"
+import React from "react";
+import { Grid, Typography } from "@material-ui/core";
 
 function PaymentSummary({ data }) {
-    const { customer } = data
+    const { customer } = data;
 
     const orders = data.items.map((order, i) => (
         // items does not have ids so created a CurtainCo00 id
         <Typography key={`CC00${i}`}>
-            {`${order.qty} x ${order.name}`}
+            {`${order.qty} x ${order.item.name}`}
         </Typography>
-    ))
+    ));
     return (
         <Grid container>
             <Grid
@@ -23,7 +23,7 @@ function PaymentSummary({ data }) {
             >
                 <Grid item>
                     <Typography variant="h3" component="h3">
-                        {data._id}
+                        {data.paymentData.id}
                     </Typography>
                 </Grid>
                 <Grid item>
@@ -51,7 +51,7 @@ function PaymentSummary({ data }) {
                 </Grid>
             </Grid>
         </Grid>
-    )
+    );
 }
 
-export default PaymentSummary
+export default PaymentSummary;

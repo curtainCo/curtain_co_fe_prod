@@ -1,28 +1,28 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react";
 // STYLES
-import { Typography, Grid, Button } from "@material-ui/core"
-import useStyles from "./UserDashboardStyles"
+import { Typography, Grid, Button } from "@material-ui/core";
+import useStyles from "./UserDashboardStyles";
 // HELPERS AND SERVICES
-import { displayShortDate } from "../../../helpers/appHelpers"
-import { useCurtainContext } from "../../../config/CurtainCoContext"
-import { buildContentString } from "../../../helpers/collectionHelpers"
+import { displayShortDate } from "../../../helpers/appHelpers";
+import { useCurtainContext } from "../../../config/CurtainCoContext";
+import { buildContentString } from "../../../helpers/collectionHelpers";
 // STATE
-import { ACTIONS } from "../../../config/stateReducer"
+import { ACTIONS } from "../../../config/stateReducer";
 
 function PurchaseOrder({ order }) {
-    const classes = useStyles()
-    const { dispatch } = useCurtainContext()
+    const classes = useStyles();
+    const { dispatch } = useCurtainContext();
     // USING THIS FOR THE IMAGE IN THE ORDER LIST
-    const firstItemInOrder = useRef({ current: { imgUrl: "", name: "" } })
+    const firstItemInOrder = useRef({ current: { imgUrl: "", name: "" } });
     const [contentStrings, setContentStrings] = useState({
         collection: "",
         fabric: "",
         track: "",
         accessory: "",
-    })
+    });
 
     function handleItemClick(event) {
-        event.preventDefault()
+        event.preventDefault();
         dispatch({
             type: ACTIONS.SET_MODAL,
             payload: {
@@ -30,49 +30,49 @@ function PurchaseOrder({ order }) {
                 data: order,
                 orderSummary: true,
             },
-        })
+        });
     }
 
     useEffect(() => {
-        let collectionsArray = []
-        let fabricsArray = []
-        let tracksArray = []
-        let accessoriesArray = []
+        let collectionsArray = [];
+        let fabricsArray = [];
+        let tracksArray = [];
+        let accessoriesArray = [];
 
         if (order.items !== undefined) {
-            firstItemInOrder.current = order.items[0].item
+            firstItemInOrder.current = order.items[0].item;
             for (let i = 0; i < order.items.length; i++) {
-                const element = order.items[i]
+                const element = order.items[i];
                 switch (element.item.category) {
                     case "Fabric":
-                        fabricsArray.push(element)
-                        break
+                        fabricsArray.push(element);
+                        break;
                     case "Tracks":
-                        tracksArray.push(element)
-                        break
+                        tracksArray.push(element);
+                        break;
                     case "Accessory":
-                        accessoriesArray.push(element)
-                        break
+                        accessoriesArray.push(element);
+                        break;
                     default:
-                        collectionsArray.push(element)
-                        break
+                        collectionsArray.push(element);
+                        break;
                 }
             }
         }
 
-        let collectionStr = buildContentString(collectionsArray, "Collection")
-        let fabricStr = buildContentString(fabricsArray, "Fabric")
-        let trackStr = buildContentString(tracksArray, "Track")
-        let accessoryStr = buildContentString(accessoriesArray, "Accessory")
+        let collectionStr = buildContentString(collectionsArray, "Collection");
+        let fabricStr = buildContentString(fabricsArray, "Fabric");
+        let trackStr = buildContentString(tracksArray, "Track");
+        let accessoryStr = buildContentString(accessoriesArray, "Accessory");
 
         let obj = {
             collection: collectionStr,
             fabric: fabricStr,
             track: trackStr,
             accessory: accessoryStr,
-        }
-        setContentStrings(obj)
-    }, [order])
+        };
+        setContentStrings(obj);
+    }, [order]);
 
     return (
         <>
@@ -80,7 +80,7 @@ function PurchaseOrder({ order }) {
 
             <Grid container direction="column">
                 <Grid item>
-                    <Typography>Order #: {order._id}</Typography>
+                    <Typography>Order #: {order.paymentData.id}</Typography>
                 </Grid>
                 <Grid item container>
                     <Grid
@@ -169,7 +169,7 @@ function PurchaseOrder({ order }) {
                 </Grid>
             </Grid>
         </>
-    )
+    );
 }
 
-export default PurchaseOrder
+export default PurchaseOrder;
