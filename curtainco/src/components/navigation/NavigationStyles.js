@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -30,6 +30,20 @@ const useStyles = makeStyles((theme) => ({
                 ? theme.palette.grey[200]
                 : theme.palette.grey[800],
     },
-}));
 
-export default useStyles;
+    mobileHeader: {
+        textAlign: "center",
+        padding: "3%",
+    },
+    footerMobile: {
+        height: "fit-content",
+        backgroundColor: "lightblue",
+        marginTop: "10%",
+    },
+    footerDetailsCont: {
+        width: "80%",
+        margin: "0 auto",
+    },
+}))
+
+export default useStyles

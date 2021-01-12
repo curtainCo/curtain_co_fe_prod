@@ -32,7 +32,7 @@ export default function SignUp() {
             }
         } catch (error) {
             console.log(
-                `Error occurred when submitting the consultation request. ${error}. ${error.response.data}`
+                `Error occurred when submitting the consultation request. ${error.response.data.message}`
             )
             setErrorSnackBar(
                 dispatch,

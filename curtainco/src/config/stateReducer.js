@@ -48,21 +48,18 @@ export default function stateReducer(state, action) {
             return {
                 ...state,
                 currentUser: action.payload,
-                loggedIn: true,
             }
         }
         case ACTIONS.LOGOUT: {
             return {
                 ...state,
                 currentUser: null,
-                loggedIn: false,
             }
         }
         case ACTIONS.SET_CURRENT_USER: {
             return {
                 ...state,
                 currentUser: action.payload,
-                loggedIn: true,
             }
         }
         case ACTIONS.REGISTER: {
@@ -70,7 +67,6 @@ export default function stateReducer(state, action) {
                 ...state,
                 users: [...state.users, action.payload],
                 currentUser: action.payload,
-                loggedIn: true,
             }
         }
 

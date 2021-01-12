@@ -77,11 +77,11 @@ export default function SignIn() {
                 setPassword("")
             }
         } catch (error) {
-            loginError = `An error ocurred on login. ${error}. ${error.response.data}`
+            loginError = `An error ocurred on login. ${error.response.data}`
             console.log(loginError)
             setErrorSnackBar(
                 dispatch,
-                "Something went wrong. Please check email address and password"
+                "Something went wrong. Email or password is incorrect"
             )
         }
         setIsLoading(false)
