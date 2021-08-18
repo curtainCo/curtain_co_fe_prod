@@ -84,7 +84,7 @@ export default function SignIn() {
                 } else {
                     timeOut = setTimeout(() => {
                         window.location.reload()
-                    }, 3_600_000)
+                    }, 3600000)
                 }
                 // console.log("timeout set, with ID", timeOut)
                 dispatch({
@@ -185,17 +185,41 @@ export default function SignIn() {
                                         error={helperText.password !== ""}
                                         helperText={helperText.password}
                                     />
-
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                color="secondary"
-                                                onChange={handleRememberMe}
-                                                checked={rememberMe}
+                                    <Grid
+                                        container
+                                        justify="space-between"
+                                        alignItems="center"
+                                    >
+                                        <Grid item>
+                                            <FormControlLabel
+                                                control={
+                                                    <Checkbox
+                                                        color="secondary"
+                                                        onChange={
+                                                            handleRememberMe
+                                                        }
+                                                        checked={rememberMe}
+                                                    />
+                                                }
+                                                label="Remember me"
                                             />
-                                        }
-                                        label="Remember me"
-                                    />
+                                        </Grid>
+                                        <Grid item>
+                                            <Link
+                                                className={classes.loginLink}
+                                                to={{
+                                                    pathname: "/register",
+                                                    state: {
+                                                        prevUrl: prevUrl,
+                                                    },
+                                                }}
+                                            >
+                                                <Typography>
+                                                    Forgot Password
+                                                </Typography>
+                                            </Link>
+                                        </Grid>
+                                    </Grid>
 
                                     <Container maxWidth="sm">
                                         <Button
