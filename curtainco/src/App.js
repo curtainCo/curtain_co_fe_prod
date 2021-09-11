@@ -25,6 +25,7 @@ import {
     Account,
     Login,
     Register,
+    ResetPassword,
     RequestConsultation,
     CustomSnackbar,
     CustomModal,
@@ -158,6 +159,11 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" component={Login} />
+                            <Route
+                                exact
+                                path="/reset-password"
+                                component={ResetPassword}
+                            />
                             <Route
                                 exact
                                 path="/register"

@@ -208,7 +208,7 @@ export default function SignIn() {
                                             <Link
                                                 className={classes.loginLink}
                                                 to={{
-                                                    pathname: "/register",
+                                                    pathname: "/reset-password",
                                                     state: {
                                                         prevUrl: prevUrl,
                                                     },
