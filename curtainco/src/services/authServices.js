@@ -32,4 +32,45 @@ async function getLoggedInUserFromHomeRoute() {
     return response
 }
 
-export { registerUser, loginUser, logoutUser, getLoggedInUserFromHomeRoute }
+async function sendConfirmationEmail(email) {
+    // call to server to check if valid email
+    // sends email or returns error
+    const response = await api.post("/forgot-password", email)
+    if (response.status !== 200) {
+        throw new Error("Email address not found.")
+    }
+    return response
+}
+
+async function checkResetPasswordToken(token) {
+    // call to server to check if token is valid
+    // const response = await api.get("/forgot-password", token)
+    // if (response.status !== 200) {
+    //     console.log("token not valid")
+    //     throw new Error("Something went wrong. Please try again.")
+    // }
+    if (token !== "test") {
+        console.log("token not valid")
+        throw new Error("Something went wrong. Please try again.")
+    }
+    return { data: { email: "simosultan2020@gmail.com" } }
+}
+
+async function resetPassword(password) {
+    // call to server to update password
+    const response = await api.post("/reset-password", password)
+    if (response.status !== 200) {
+        throw new Error("Something went wrong. Password not updated.")
+    }
+    return response
+}
+
+export {
+    registerUser,
+    loginUser,
+    logoutUser,
+    getLoggedInUserFromHomeRoute,
+    sendConfirmationEmail,
+    checkResetPasswordToken,
+    resetPassword,
+}

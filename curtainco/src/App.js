@@ -4,7 +4,7 @@ import { useCurtainContext } from "./config/CurtainCoContext"
 import { ACTIONS } from "./config/stateReducer"
 // STYLES
 import { Container, useMediaQuery, ThemeProvider } from "@material-ui/core"
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
+import { createTheme, responsiveFontSizes } from "@material-ui/core/styles"
 import "./styles/Main.css"
 // PACKAGES
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
@@ -26,6 +26,7 @@ import {
     Login,
     Register,
     ResetPassword,
+    ResetPasswordRestricted,
     RequestConsultation,
     CustomSnackbar,
     CustomModal,
@@ -39,7 +40,7 @@ function App() {
     // const isMobile = useMediaQuery("(max-width: 600px)")
     const isMobileOrTabletPortrait = useMediaQuery("(max-width: 960px)")
 
-    let theme = createMuiTheme({
+    let theme = createTheme({
         typography: {
             fontFamily: [
                 '"Nunito"',
@@ -161,13 +162,18 @@ function App() {
                             <Route exact path="/login" component={Login} />
                             <Route
                                 exact
+                                path="/register"
+                                component={Register}
+                            />
+                            <Route
+                                exact
                                 path="/reset-password"
                                 component={ResetPassword}
                             />
                             <Route
                                 exact
-                                path="/register"
-                                component={Register}
+                                path="/reset-password/:token"
+                                component={ResetPasswordRestricted}
                             />
                             <Route exact path="/about" component={About} />
                             <Route

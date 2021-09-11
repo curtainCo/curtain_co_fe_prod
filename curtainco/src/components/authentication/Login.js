@@ -151,105 +151,101 @@ export default function SignIn() {
                         {isLoading ? (
                             <LoadingSymbol />
                         ) : (
-                            <>
-                                <form
-                                    className={classes.form}
-                                    noValidate
-                                    onSubmit={handleLogin}
+                            <form
+                                className={classes.form}
+                                noValidate
+                                onSubmit={handleLogin}
+                            >
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    onChange={handleEmailChange}
+                                    error={helperText.email !== ""}
+                                    helperText={helperText.email}
+                                />
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    onChange={handlePasswordChange}
+                                    error={helperText.password !== ""}
+                                    helperText={helperText.password}
+                                />
+                                <Grid
+                                    container
+                                    justify="space-between"
+                                    alignItems="center"
                                 >
-                                    <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        id="email"
-                                        label="Email Address"
-                                        name="email"
-                                        autoComplete="email"
-                                        autoFocus
-                                        onChange={handleEmailChange}
-                                        error={helperText.email !== ""}
-                                        helperText={helperText.email}
-                                    />
-                                    <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        autoComplete="current-password"
-                                        onChange={handlePasswordChange}
-                                        error={helperText.password !== ""}
-                                        helperText={helperText.password}
-                                    />
-                                    <Grid
-                                        container
-                                        justify="space-between"
-                                        alignItems="center"
-                                    >
-                                        <Grid item>
-                                            <FormControlLabel
-                                                control={
-                                                    <Checkbox
-                                                        color="secondary"
-                                                        onChange={
-                                                            handleRememberMe
-                                                        }
-                                                        checked={rememberMe}
-                                                    />
-                                                }
-                                                label="Remember me"
-                                            />
-                                        </Grid>
-                                        <Grid item>
-                                            <Link
-                                                className={classes.loginLink}
-                                                to={{
-                                                    pathname: "/reset-password",
-                                                    state: {
-                                                        prevUrl: prevUrl,
-                                                    },
-                                                }}
-                                            >
-                                                <Typography>
-                                                    Forgot Password
-                                                </Typography>
-                                            </Link>
-                                        </Grid>
+                                    <Grid item>
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    color="secondary"
+                                                    onChange={handleRememberMe}
+                                                    checked={rememberMe}
+                                                />
+                                            }
+                                            label="Remember me"
+                                        />
                                     </Grid>
-
-                                    <Container maxWidth="sm">
-                                        <Button
-                                            type="submit"
-                                            fullWidth
-                                            variant="contained"
-                                            color="secondary"
-                                            className={classes.submit}
-                                        >
-                                            Sign In
-                                        </Button>
-                                    </Container>
-
-                                    <Grid container justify="flex-end">
+                                    <Grid item>
                                         <Link
                                             className={classes.loginLink}
                                             to={{
-                                                pathname: "/register",
+                                                pathname: "/reset-password",
                                                 state: {
                                                     prevUrl: prevUrl,
                                                 },
                                             }}
                                         >
                                             <Typography>
-                                                Don't have an account? Sign Up
+                                                Forgot Password
                                             </Typography>
                                         </Link>
                                     </Grid>
-                                </form>
-                            </>
+                                </Grid>
+
+                                <Container maxWidth="sm">
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        color="secondary"
+                                        className={classes.submit}
+                                    >
+                                        Sign In
+                                    </Button>
+                                </Container>
+
+                                <Grid container justify="flex-end">
+                                    <Link
+                                        className={classes.loginLink}
+                                        to={{
+                                            pathname: "/register",
+                                            state: {
+                                                prevUrl: prevUrl,
+                                            },
+                                        }}
+                                    >
+                                        <Typography>
+                                            Don't have an account? Sign Up
+                                        </Typography>
+                                    </Link>
+                                </Grid>
+                            </form>
                         )}
                     </div>
 

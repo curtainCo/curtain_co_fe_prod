@@ -13,6 +13,7 @@ function loginFieldAreBad(field, type) {
         let check = passwordHasBadFormatting(field)
         if (check) return check
     }
+
     return false
 }
 

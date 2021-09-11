@@ -1,10 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 // SERVICES AND HELPERS
-import { sendConfirmationEmail } from "../../services/authServices"
+import {
+    checkResetPasswordToken,
+    resetPassword,
+} from "../../services/authServices"
 import { loginFieldAreBad } from "../../helpers/authHelpers"
 import { setErrorSnackBar, setSuccessSnackBar } from "../../helpers/appHelpers"
 // PACKAGES
-import { Link, Redirect, useHistory } from "react-router-dom"
+import { Redirect, useHistory, useParams } from "react-router-dom"
 // STATE
 import { useCurtainContext } from "../../config/CurtainCoContext"
 // COMPONENTS
@@ -15,7 +18,6 @@ import {
     Avatar,
     Button,
     TextField,
-    Grid,
     Typography,
     Box,
     Container,
@@ -26,34 +28,66 @@ import useStyles from "../reusable/UserDataFormStyles"
 // ICONS
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
 
-export default function ResetPassword() {
+export default function ResetPasswordRestricted() {
     const classes = useStyles()
     const history = useHistory()
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.only("xs"))
+    const { token } = useParams()
 
     const { state, dispatch } = useCurtainContext()
-    const [email, setEmail] = useState("")
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+        confirmPassword: "",
+    })
     const [prevUrl, setPrevUrl] = useState("/")
     const [isLoading, setIsLoading] = useState(false)
     const [helperText, setHelperText] = useState({
-        email: "",
+        password: "",
+        confirmPassword: "",
     })
 
-    async function handleSendConfirmation(e) {
+    useEffect(() => {
+        setIsLoading(true)
+
+        try {
+            ;(async () => {
+                const rsp = await checkResetPasswordToken(token)
+                setUser({ ...user, email: rsp.data.email })
+            })()
+        } catch (error) {
+            history.push("/")
+            setErrorSnackBar(dispatch, error)
+        }
+        setIsLoading(false)
+    }, [user, token, history, dispatch])
+
+    async function handleResetPassword(e) {
         e.preventDefault()
         setIsLoading(true)
-        const emailCheck = loginFieldAreBad(email, "email")
+        const passwordCheck = loginFieldAreBad(user.password, "password")
 
-        if (emailCheck) {
-            setHelperText({ ...helperText, email: emailCheck })
+        if (passwordCheck || user.password !== user.confirmPassword) {
+            setHelperText({ ...helperText, password: passwordCheck })
+            setIsLoading(false)
+            return
+        } else if (user.password !== user.confirmPassword) {
+            setHelperText({
+                ...helperText,
+                password: "Passwords are not the same",
+            })
+            setHelperText({
+                ...helperText,
+                confirmPassword: "Passwords are not the same",
+            })
             setIsLoading(false)
             return
         }
 
         try {
-            await sendConfirmationEmail(email)
-            setEmail("")
+            await resetPassword(user)
+            setUser({ email: "", password: "" })
             setSuccessSnackBar(
                 dispatch,
                 "Success. Please check your emails to reset your password."
@@ -61,14 +95,19 @@ export default function ResetPassword() {
         } catch (error) {
             console.log(`An error ocurred on login. ${error}`)
             setErrorSnackBar(dispatch, error)
-            setHelperText({ ...helperText, email: error })
+            setHelperText({ ...helperText, password: error })
         }
         setIsLoading(false)
     }
 
-    function handleEmailChange(e) {
-        setEmail(e.target.value)
-        setHelperText({ ...helperText, email: "" })
+    function handlePasswordChange(e) {
+        setUser({ ...user, password: e.target.value })
+        setHelperText({ ...helperText, password: "" })
+    }
+
+    function handleConfirmPasswordChange(e) {
+        setUser({ ...user, confirmPassword: e.target.value })
+        setHelperText({ ...helperText, confirmPassword: "" })
     }
 
     return (
@@ -97,21 +136,33 @@ export default function ResetPassword() {
                             <form
                                 className={classes.form}
                                 noValidate
-                                onSubmit={handleSendConfirmation}
+                                onSubmit={handleResetPassword}
                             >
                                 <TextField
                                     variant="outlined"
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
+                                    id="password"
+                                    label="New Password"
+                                    name="password"
                                     autoFocus
-                                    onChange={handleEmailChange}
-                                    error={helperText.email !== ""}
-                                    helperText={helperText.email}
+                                    onChange={handlePasswordChange}
+                                    error={helperText.password !== ""}
+                                    helperText={helperText.password}
+                                />
+
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="password"
+                                    label="Confirm Password"
+                                    name="confirm-password"
+                                    onChange={handleConfirmPasswordChange}
+                                    error={helperText.confirmPassword !== ""}
+                                    helperText={helperText.confirmPassword}
                                 />
 
                                 <Container maxWidth="sm">
@@ -122,25 +173,9 @@ export default function ResetPassword() {
                                         color="secondary"
                                         className={classes.submit}
                                     >
-                                        Send Confirmation Email
+                                        Reset Password
                                     </Button>
                                 </Container>
-
-                                <Grid container justify="flex-end">
-                                    <Link
-                                        className={classes.loginLink}
-                                        to={{
-                                            pathname: "/register",
-                                            state: {
-                                                prevUrl: prevUrl,
-                                            },
-                                        }}
-                                    >
-                                        <Typography>
-                                            Don't have an account? Sign Up
-                                        </Typography>
-                                    </Link>
-                                </Grid>
                             </form>
                         )}
                     </div>
