@@ -144,6 +144,7 @@ function CollectionForm({
                                     ? collection.imgUrl
                                     : "/no-image.png"
                             }
+                            onError={e => e.target.src = "./no-image.png"}
                             alt={
                                 collection.imgUrl === ""
                                     ? "blank-image"

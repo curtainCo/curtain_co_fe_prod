@@ -56,6 +56,7 @@ function CartItem({
                                         ? productItem.imgUrl
                                         : "/no-image.png"
                                 }
+                                onError={e => e.target.src = "./no-image.png"}
                                 alt={productItem.name}
                                 className={classes.cartItemImg}
                             />

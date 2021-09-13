@@ -55,12 +55,14 @@ function ProductItem({ productData }) {
             <Card className={classes.card}>
                 <CardMedia
                     className={classes.cardMedia}
+                    component="img"
                     image={
                         productData.imgUrl && productData.imgUrl !== ""
                             ? productData.imgUrl
                             : "./no-image.png"
                     }
                     title={`${capitalize(productData.name)} Image`}
+                    onError={e => e.target.src = "./no-image.png"}
                 />
 
                 <CardContent className={classes.cardContent}>

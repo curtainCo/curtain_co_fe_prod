@@ -26,6 +26,7 @@ function CollectionItem({ data }) {
                 <Grid item container justify="center" xs={12} sm={4}>
                     <img
                         src={data.imgUrl === "" ? "/no-image.png" : data.imgUrl}
+                        onError={e => e.target.src = "./no-image.png"}
                         alt={data.name}
                         className={
                             isMobile

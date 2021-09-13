@@ -61,6 +61,7 @@ function AccordionDataItem({ data, handleCustomization }) {
                             ? product.imgUrl
                             : "/no-image.png"
                     }
+                    onError={e => e.target.src = "./no-image.png"}
                     alt={`${product.name} product`}
                     className={
                         productSelection[index]

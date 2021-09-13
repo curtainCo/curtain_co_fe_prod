@@ -41,6 +41,7 @@ function FabricForm({
                                     ? product.imgUrl
                                     : "/no-image.png"
                             }
+                            onError={e => e.target.src = "./no-image.png"}
                             alt={
                                 product.imgUrl === ""
                                     ? "blank-image"
@@ -191,13 +192,13 @@ function FabricForm({
                             )}
                         </Grid>
 
-                        {isLoading 
-                        ? (
-                            <Grid item>
-                                <LoadingSymbol />
-                            </Grid>
-                        )
-                        : (<Grid item>
+                        {isLoading
+                            ? (
+                                <Grid item>
+                                    <LoadingSymbol />
+                                </Grid>
+                            )
+                            : (<Grid item>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -206,9 +207,9 @@ function FabricForm({
                                     {buttonText}
                                 </Button>
                             </Grid>)
-                            }
+                        }
 
-                        
+
                     </Grid>
                 )}
             </Grid>

@@ -65,6 +65,7 @@ function PurchaseOrder({ order }) {
                                     ? "/no-image.png"
                                     : firstItemInOrder.current.imgUrl
                             }
+                            onError={e => e.target.src = "./no-image.png"}
                             alt={
                                 firstItemInOrder.current.name === undefined
                                     ? "product has no image"

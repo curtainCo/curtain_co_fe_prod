@@ -57,6 +57,7 @@ function PurchasedCollection({ qty, collection }) {
                                     ? collection.imgUrl
                                     : "/no-image.png"
                             }
+                            onError={e => e.target.src = "./no-image.png"}
                             alt={collection.name}
                             className={classes.orderSummaryModalImage}
                         />

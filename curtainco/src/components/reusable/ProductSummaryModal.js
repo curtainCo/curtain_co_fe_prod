@@ -53,6 +53,7 @@ function ProductSummaryModal({ data, title, handleCartClick, handleClose }) {
                                 ? "/no-image.png"
                                 : data.imgUrl
                         }
+                        onError={e => e.target.src = "./no-image.png"}
                         alt={data.name}
                         className={
                             isMobile
