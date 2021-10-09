@@ -10,6 +10,7 @@ import { setErrorSnackBar, setSuccessSnackBar } from "../../helpers/appHelpers"
 import { Redirect, useHistory, useParams } from "react-router-dom"
 // STATE
 import { useCurtainContext } from "../../config/CurtainCoContext"
+import { ACTIONS } from "../../config/stateReducer"
 // COMPONENTS
 import Copyright from "./Copyright"
 import LoadingSymbol from "../reusable/LoadingSymbol"
@@ -50,52 +51,57 @@ export default function ResetPasswordRestricted() {
 
     useEffect(() => {
         setIsLoading(true)
-
-        try {
-            ;(async () => {
-                const rsp = await checkResetPasswordToken(token)
-                setUser({ ...user, email: rsp.data.email })
-            })()
-        } catch (error) {
-            history.push("/")
-            setErrorSnackBar(dispatch, error)
-        }
+        ;(async () => {
+            try {
+                const resp = await checkResetPasswordToken(token)
+                setUser({ ...user, email: resp.data })
+            } catch (error) {
+                history.push("/")
+                setErrorSnackBar(dispatch, error.message)
+            }
+        })()
         setIsLoading(false)
     }, [user, token, history, dispatch])
 
     async function handleResetPassword(e) {
         e.preventDefault()
         setIsLoading(true)
-        const passwordCheck = loginFieldAreBad(user.password, "password")
+        const passwordIsBad = loginFieldAreBad(user.password, "password")
+        const confirmPasswordIsBad = loginFieldAreBad(
+            user.confirmPassword,
+            "password"
+        )
 
-        if (passwordCheck || user.password !== user.confirmPassword) {
-            setHelperText({ ...helperText, password: passwordCheck })
+        if (passwordIsBad) {
+            setHelperText({ ...helperText, password: passwordIsBad })
+            setIsLoading(false)
+            return
+        } else if (confirmPasswordIsBad) {
+            setHelperText({ ...helperText, password: confirmPasswordIsBad })
             setIsLoading(false)
             return
         } else if (user.password !== user.confirmPassword) {
             setHelperText({
                 ...helperText,
-                password: "Passwords are not the same",
-            })
-            setHelperText({
-                ...helperText,
-                confirmPassword: "Passwords are not the same",
+                confirmPassword: "Passwords must match.",
             })
             setIsLoading(false)
             return
         }
 
         try {
-            await resetPassword(user)
-            setUser({ email: "", password: "" })
+            await resetPassword({
+                email: user.email,
+                password: user.password,
+            })
             setSuccessSnackBar(
                 dispatch,
-                "Success. Please check your emails to reset your password."
+                "Success. Your password has been updated. Please log in again."
             )
+            history.push("/login")
         } catch (error) {
-            console.log(`An error ocurred on login. ${error}`)
-            setErrorSnackBar(dispatch, error)
-            setHelperText({ ...helperText, password: error })
+            console.log(`An error ocurred on resetPassword. ${error.message}`)
+            setErrorSnackBar(dispatch, "Error: Try again.")
         }
         setIsLoading(false)
     }

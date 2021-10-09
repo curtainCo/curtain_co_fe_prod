@@ -32,7 +32,7 @@ function AccessoryForm({
         <>
             <div className={classes.accessoryCont}>
                 <Box pb={1}>
-                    <Grid container justify="center" alignItems="center">
+                    <Grid container justifyContent="center" alignItems="center">
                         <Grid item xs={3}>
                             <img
                                 src={
@@ -51,7 +51,7 @@ function AccessoryForm({
                         <Grid
                             item
                             container
-                            justify="center"
+                            justifyContent="center"
                             alignItems="center"
                             xs={9}
                             spacing={2}
@@ -76,7 +76,7 @@ function AccessoryForm({
                         </Grid>
                     </Grid>
                 </Box>
-                <Grid container spacing={1} justify="center">
+                <Grid container spacing={1} justifyContent="center">
                     <Grid item xs={12}>
                         <TextField
                             label={`${product.type} Name`}
@@ -122,7 +122,7 @@ function AccessoryForm({
                     <Grid
                         item
                         container
-                        justify="space-between"
+                        justifyContent="space-between"
                         alignItems="center"
                         xs={12}
                         style={{ paddingTop: "5%" }}
@@ -141,13 +141,12 @@ function AccessoryForm({
                             )}
                         </Grid>
 
-                        {isLoading 
-                            ? (
+                        {isLoading ? (
                             <Grid item>
                                 <LoadingSymbol />
                             </Grid>
-                        )
-                            : (<Grid item>
+                        ) : (
+                            <Grid item>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -157,10 +156,8 @@ function AccessoryForm({
                                         ? `Submit ${product.type}`
                                         : `Update ${product.type}`}
                                 </Button>
-                            </Grid>)
-                        }
-
-                        
+                            </Grid>
+                        )}
                     </Grid>
                 </Grid>
             </div>

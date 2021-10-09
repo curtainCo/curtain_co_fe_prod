@@ -29,7 +29,7 @@ function CartList({
                 <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     spacing={6}
                 >

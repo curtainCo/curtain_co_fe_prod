@@ -52,13 +52,13 @@ function CurtainCoImg({
                     zIndex: 25,
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
+                    justifyContentContent: "center",
                 }}
             >
                 <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     style={{
                         width: "87%",
@@ -84,7 +84,7 @@ function CurtainCoImg({
                     borderRadius: `${borderRadius}px 0 ${borderRadius}px 0`,
                 }}
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Grid
@@ -97,13 +97,13 @@ function CurtainCoImg({
                     }}
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                 >
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         style={{
                             position: "absolute",

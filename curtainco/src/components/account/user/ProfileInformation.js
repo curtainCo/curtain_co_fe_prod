@@ -94,7 +94,7 @@ function ProfileInformation({ isMobile }) {
                 )}
             </Grid>
 
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
                 <Button
                     variant="contained"
                     color={editUser ? "default" : "secondary"}

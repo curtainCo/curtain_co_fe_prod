@@ -50,7 +50,7 @@ function Collections() {
                 container
                 direction="column"
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 spacing={8}
                 className={classes.collectionListCont}
             >

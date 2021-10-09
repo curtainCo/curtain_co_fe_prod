@@ -24,7 +24,7 @@ function PurchasedCollection({ qty, collection }) {
             <Grid
                 item
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={isMobile ? 1 : 2}
             >
@@ -46,7 +46,7 @@ function PurchasedCollection({ qty, collection }) {
                 <Grid
                     item
                     container
-                    justify={isMobile ? "flex-start" : "center"}
+                    justifyContent={isMobile ? "flex-start" : "center"}
                     xs={6}
                     sm={2}
                 >

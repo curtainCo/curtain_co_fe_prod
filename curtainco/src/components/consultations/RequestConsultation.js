@@ -58,7 +58,7 @@ export default function RequestConsultation({ history }) {
         <Grid
             container
             alignItems="flex-start"
-            justify="center"
+            justifyContent="center"
             item
             md={10}
             className={classes.consultationCont}

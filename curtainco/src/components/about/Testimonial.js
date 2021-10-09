@@ -12,7 +12,7 @@ function Testimonial() {
         { id: 3, msg: "Kewl" },
     ]
     return (
-        <Grid item container direction="column" sm={6} justify="center">
+        <Grid item container direction="column" sm={6} justifyContent="center">
             <Grid item>
                 <Typography variant="h4" component="h4">
                     What Our Clients Say

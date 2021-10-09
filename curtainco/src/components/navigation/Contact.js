@@ -19,7 +19,9 @@ function Contact() {
             <Grid
                 item
                 container
-                justify={isMobileOrTabletPortrait ? "center" : "flex-start"}
+                justifyContent={
+                    isMobileOrTabletPortrait ? "center" : "flex-start"
+                }
                 spacing={2}
             >
                 <Grid item>
@@ -45,7 +47,9 @@ function Contact() {
             <Grid
                 item
                 container
-                justify={isMobileOrTabletPortrait ? "center" : "flex-start"}
+                justifyContent={
+                    isMobileOrTabletPortrait ? "center" : "flex-start"
+                }
             >
                 <Typography variant="body2" className={classes.footerText}>
                     0401 762 272
@@ -55,7 +59,9 @@ function Contact() {
             <Grid
                 item
                 container
-                justify={isMobileOrTabletPortrait ? "center" : "flex-start"}
+                justifyContent={
+                    isMobileOrTabletPortrait ? "center" : "flex-start"
+                }
             >
                 <Typography variant="body2" className={classes.footerEmailLink}>
                     <a href="mailto:marie@marieg.com.au?" className="link">

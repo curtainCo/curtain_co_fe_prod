@@ -32,37 +32,27 @@ async function getLoggedInUserFromHomeRoute() {
     return response
 }
 
-async function sendConfirmationEmail(email) {
+function sendConfirmationEmail(email) {
     // call to server to check if valid email
     // sends email or returns error
-    const response = await api.post("/forgot-password", email)
-    if (response.status !== 200) {
-        throw new Error("Email address not found.")
-    }
-    return response
+    return api.post("/forgot-password", email)
 }
 
-async function checkResetPasswordToken(token) {
+function checkResetPasswordToken(token) {
     // call to server to check if token is valid
-    // const response = await api.get("/forgot-password", token)
-    // if (response.status !== 200) {
-    //     console.log("token not valid")
-    //     throw new Error("Something went wrong. Please try again.")
-    // }
-    if (token !== "test") {
+    const resp = api.get("/forgot-password", { resetPasswordToken: token })
+    if (resp.status !== 200) {
         console.log("token not valid")
-        throw new Error("Something went wrong. Please try again.")
+        throw new Error(
+            "Something went wrong. Please try resetting your password again again."
+        )
     }
-    return { data: { email: "simosultan2020@gmail.com" } }
+    return resp
 }
 
-async function resetPassword(password) {
+function resetPassword(payload) {
     // call to server to update password
-    const response = await api.post("/reset-password", password)
-    if (response.status !== 200) {
-        throw new Error("Something went wrong. Password not updated.")
-    }
-    return response
+    return api.post("/update-password-by-email", payload)
 }
 
 export {

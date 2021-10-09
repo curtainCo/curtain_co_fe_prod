@@ -186,7 +186,7 @@ export default function SignIn() {
                                 />
                                 <Grid
                                     container
-                                    justify="space-between"
+                                    justifyContent="space-between"
                                     alignItems="center"
                                 >
                                     <Grid item>
@@ -230,7 +230,7 @@ export default function SignIn() {
                                     </Button>
                                 </Container>
 
-                                <Grid container justify="flex-end">
+                                <Grid container justifyContent="flex-end">
                                     <Link
                                         className={classes.loginLink}
                                         to={{

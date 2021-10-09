@@ -136,7 +136,7 @@ function CollectionForm({
     return (
         <>
             <Box pb={1}>
-                <Grid container justify="center" alignItems="center">
+                <Grid container justifyContent="center" alignItems="center">
                     <Grid item xs={3}>
                         <img
                             src={
@@ -155,7 +155,7 @@ function CollectionForm({
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         xs={9}
                         spacing={2}
@@ -179,7 +179,12 @@ function CollectionForm({
                 </Grid>
             </Box>
 
-            <Grid container spacing={1} justify="center" alignItems="center">
+            <Grid
+                container
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Grid item xs={12} sm={5}>
                     <TextField
                         id="collection-input"
@@ -282,7 +287,7 @@ function CollectionForm({
                     <Grid
                         item
                         container
-                        justify="space-between"
+                        justifyContent="space-between"
                         alignItems="center"
                         xs={12}
                         style={{ marginTop: "5%" }}

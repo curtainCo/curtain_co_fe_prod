@@ -49,7 +49,7 @@ function ProductList({
                     sm={6}
                     md={4}
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     style={{ width: "100%" }}
                 >

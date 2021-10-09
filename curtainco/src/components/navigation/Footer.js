@@ -60,7 +60,7 @@ export default function StickyFooter() {
                                 item
                                 container
                                 direction="row"
-                                justify="space-around"
+                                justifyContent="space-around"
                                 alignItems="center"
                             >
                                 <Grid item xs={4}>
@@ -71,7 +71,7 @@ export default function StickyFooter() {
                                     item
                                     // sm={8}
                                     container
-                                    justify="center"
+                                    justifyContent="center"
                                     alignItems="center"
                                     xs={4}
                                 >
@@ -106,7 +106,12 @@ export default function StickyFooter() {
                         spacing={2}
                         className={classes.footerDetailsCont}
                     >
-                        <Grid item container justify="space-between" xs={12}>
+                        <Grid
+                            item
+                            container
+                            justifyContent="space-between"
+                            xs={12}
+                        >
                             <Grid item container xs={6}>
                                 <Link to="/">
                                     <img
@@ -127,7 +132,7 @@ export default function StickyFooter() {
                                 container
                                 direction="column"
                                 alignItems="center"
-                                justify="center"
+                                justifyContent="center"
                                 xs={12}
                             >
                                 <Contact />
@@ -136,7 +141,7 @@ export default function StickyFooter() {
                         <Grid
                             item
                             container
-                            justify="center"
+                            justifyContent="center"
                             alignItems="center"
                         >
                             {/* HIDING THE REQUEST CONSULTATION BUTTON TO THIS ROUTE SO THAT PEOPLE
@@ -146,7 +151,7 @@ export default function StickyFooter() {
                                 <RequestConsultationButton size={"large"} />
                             )}
                         </Grid>
-                        <Grid item container justify="space-around">
+                        <Grid item container justifyContent="space-around">
                             <Legal />
                         </Grid>
                     </Grid>

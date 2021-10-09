@@ -9,7 +9,7 @@ function LoadingSymbol() {
                 item
                 xs
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 style={{ height: "100%" }}
             >

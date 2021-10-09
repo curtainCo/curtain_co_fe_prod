@@ -48,9 +48,8 @@ function Cart({ history }) {
     const { state, dispatch } = useCurtainContext()
     let orderId = null
     const [paymentSuccess, setPaymentSuccess] = useState(false)
-    const [paymentFailedOrCancelled, setPaymentFailedOrCancelled] = useState(
-        false
-    )
+    const [paymentFailedOrCancelled, setPaymentFailedOrCancelled] =
+        useState(false)
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.only("xs"))
 
@@ -249,7 +248,7 @@ function Cart({ history }) {
             ) : (
                 <Grid
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     spacing={2}
                     style={{ paddingTop: "3%" }}
@@ -271,7 +270,7 @@ function Cart({ history }) {
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         className={classes.cartTotalCont}
                         xs={12}

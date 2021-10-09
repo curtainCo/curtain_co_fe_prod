@@ -38,10 +38,10 @@ function OrderSummaryModal({ data, handleClose }) {
             <Grid
                 item
                 container
-                justify="space-between"
+                justifyContent="space-between"
                 className={classes.closeButtonCont}
             >
-                <Grid item container justify="center" xs={10} sm={9}>
+                <Grid item container justifyContent="center" xs={10} sm={9}>
                     <Typography
                         variant="h3"
                         component="h3"

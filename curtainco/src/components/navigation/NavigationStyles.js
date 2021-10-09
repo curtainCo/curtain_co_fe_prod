@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[0],
         width: "100%",
         display: "flex",
-        justifyContent: "center",
+        justifyContentContent: "center",
         alignItems: "stretch",
         paddingTop: "10px",
     },
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     },
     myAccountButton: {
         display: "flex",
-        justifyContent: "space-around",
+        justifyContentContent: "space-around",
         color: "black",
         textDecoration: "none",
         width: "100%",

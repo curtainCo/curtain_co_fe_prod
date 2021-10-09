@@ -35,7 +35,7 @@ function CollectionIncludes({
             item
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             xs={12}
             className={classes.collectionIncludesCont}
@@ -61,7 +61,7 @@ function CollectionIncludes({
                     item
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     xs={6}
                     md={8}
@@ -86,7 +86,7 @@ function CollectionIncludes({
                     item
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     xs={6}
                     md={4}
@@ -122,7 +122,7 @@ function CollectionIncludes({
                     item
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     xs={6}
                     md={8}

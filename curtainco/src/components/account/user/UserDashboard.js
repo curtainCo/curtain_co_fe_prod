@@ -17,7 +17,7 @@ function UserDashboard({ isLoading }) {
         <Grid
             container
             direction="column"
-            justify="space-between"
+            justifyContent="space-between"
             alignItems="center"
             className={classes.userDashboardCont}
             spacing={isMobile ? 4 : 6}
@@ -26,7 +26,7 @@ function UserDashboard({ isLoading }) {
                 item
                 container
                 direction="row"
-                justify="space-around"
+                justifyContent="space-around"
                 spacing={isMobileOrTabletPortrait ? 4 : 0}
             >
                 <Grid
@@ -47,7 +47,7 @@ function UserDashboard({ isLoading }) {
                 <Grid
                     item
                     container
-                    justify="flex-start"
+                    justifyContent="flex-start"
                     alignItems="center"
                     xs={12}
                     md={10}

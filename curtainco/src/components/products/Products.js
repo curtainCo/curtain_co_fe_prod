@@ -76,7 +76,7 @@ function Products() {
         <Grid
             container
             item
-            justify="space-around"
+            justifyContent="space-around"
             alignItems="flex-start" // this is for putting the filters at the top of the page in landscape
             xs={12}
             className={classes.productPageCont}
@@ -85,7 +85,7 @@ function Products() {
                 item
                 container
                 direction="row"
-                justify="space-around"
+                justifyContent="space-around"
                 alignItems="center"
                 xs={12}
                 sm={10}
@@ -119,7 +119,7 @@ function Products() {
                 xs={12}
                 sm={10}
                 md={8}
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 className={isMobile ? classes.cardGridMobile : classes.cardGrid}
             >

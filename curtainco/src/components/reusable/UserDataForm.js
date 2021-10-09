@@ -184,9 +184,8 @@ export default function UserDataForm({
             // console.log({ tempConsultUserData })
 
             // ERROR HANDLING FOR SUBMITTING A CONSULTATION
-            let emptyFields = areAnyFieldsInUserDataFormAreEmpty(
-                tempConsultUserData
-            )
+            let emptyFields =
+                areAnyFieldsInUserDataFormAreEmpty(tempConsultUserData)
 
             if (emptyFields) {
                 setHelperText(emptyFields)
@@ -556,7 +555,7 @@ export default function UserDataForm({
                     </Container>
 
                     {withAuth.email && withAuth.password && (
-                        <Grid container justify="flex-end">
+                        <Grid container justifyContent="flex-end">
                             <Link className={classes.loginLink} to="/login">
                                 <Typography>
                                     Already have an account? Sign In

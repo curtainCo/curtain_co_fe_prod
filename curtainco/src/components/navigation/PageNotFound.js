@@ -7,7 +7,7 @@ function PageNotFound() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.only("xs"))
     return (
-        <Grid container justify="center" style={{ height: "53vh" }}>
+        <Grid container justifyContent="center" style={{ height: "53vh" }}>
             <div
                 style={{
                     width: isMobile ? "85vw" : "40vw",
@@ -22,7 +22,7 @@ function PageNotFound() {
                     text="Page Not Found"
                 />
             </div>
-            <Grid container justify="center" style={{ marginTop: "5%" }}>
+            <Grid container justifyContent="center" style={{ marginTop: "5%" }}>
                 <Link to="/">
                     <Button variant="contained" color="primary" size="large">
                         Go Back Home

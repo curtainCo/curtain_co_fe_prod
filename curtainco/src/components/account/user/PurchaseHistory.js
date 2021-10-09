@@ -45,7 +45,7 @@ function PurchaseHistory({ isLoading, isMobile }) {
 
     return (
         <Grid item container spacing={2}>
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
                 <Typography
                     variant="h4"
                     className={classes.userDashboardSubheading}
@@ -63,7 +63,7 @@ function PurchaseHistory({ isLoading, isMobile }) {
                 {isLoading ? (
                     <LoadingSymbol />
                 ) : allPurchasedItems.length === 0 ? (
-                    <Grid item container justify="center">
+                    <Grid item container justifyContent="center">
                         <Typography className={classes.purchaseHistoryErrorMsg}>
                             {purchaseHistoryError}
                         </Typography>

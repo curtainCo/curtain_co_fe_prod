@@ -159,7 +159,9 @@ function CollectionCustomise() {
                 item
                 xs={12}
                 container
-                justify={isMobileOrTabletPortrait ? "center" : "flex-start"}
+                justifyContent={
+                    isMobileOrTabletPortrait ? "center" : "flex-start"
+                }
                 className={classes.collectionHeaderCont}
             >
                 <Typography
@@ -175,7 +177,7 @@ function CollectionCustomise() {
             <Grid
                 item
                 container
-                justify="space-around"
+                justifyContent="space-around"
                 className={classes.customizedCollectionAccordionCont}
                 spacing={isMobileOrTabletPortrait ? 5 : 0}
                 xs={12}
@@ -184,7 +186,7 @@ function CollectionCustomise() {
                     item
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     spacing={isMobile ? 5 : 2}
                     xs={12}
@@ -218,7 +220,7 @@ function CollectionCustomise() {
                 <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     xs={12}
                     sm={12}

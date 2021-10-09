@@ -16,11 +16,16 @@ function ShowUserInformation({ user, isMobile }) {
         <Grid
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             spacing={1}
         >
-            <Grid item container justify="space-around" alignItems="center">
+            <Grid
+                item
+                container
+                justifyContent="space-around"
+                alignItems="center"
+            >
                 <Grid item xs={2} sm={1}>
                     <EmailIcon color="primary" />
                 </Grid>
@@ -36,7 +41,7 @@ function ShowUserInformation({ user, isMobile }) {
             <Grid
                 item
                 container
-                justify="space-around"
+                justifyContent="space-around"
                 alignItems="center"
                 spacing={1}
             >
@@ -52,7 +57,7 @@ function ShowUserInformation({ user, isMobile }) {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid item container justify="center" alignItems="center">
+            <Grid item container justifyContent="center" alignItems="center">
                 <Grid item xs={2} sm={1}>
                     <PhoneIcon color="primary" />
                 </Grid>
@@ -66,7 +71,12 @@ function ShowUserInformation({ user, isMobile }) {
                 </Grid>
             </Grid>
             {user.companyName && (
-                <Grid item container justify="center" alignItems="center">
+                <Grid
+                    item
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <Grid item xs={2} sm={1}>
                         <BusinessIcon color="primary" />
                     </Grid>

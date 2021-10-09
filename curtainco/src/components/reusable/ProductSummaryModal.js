@@ -43,7 +43,7 @@ function ProductSummaryModal({ data, title, handleCartClick, handleClose }) {
                 container
                 xs={12}
                 sm={5}
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <div role="img">
@@ -66,7 +66,7 @@ function ProductSummaryModal({ data, title, handleCartClick, handleClose }) {
                 item
                 container
                 direction="column"
-                justify="flex-start"
+                justifyContent="flex-start"
                 alignItems="flex-start"
                 xs={12}
                 sm={7}
@@ -74,10 +74,10 @@ function ProductSummaryModal({ data, title, handleCartClick, handleClose }) {
                 <Grid
                     item
                     container
-                    justify="space-between"
+                    justifyContent="space-between"
                     className={classes.closeButtonCont}
                 >
-                    <Grid item container justify="center" xs={10} sm={9}>
+                    <Grid item container justifyContent="center" xs={10} sm={9}>
                         <Typography
                             variant="h3"
                             component="h3"
@@ -132,7 +132,7 @@ function ProductSummaryModal({ data, title, handleCartClick, handleClose }) {
                 <Grid
                     item
                     container
-                    justify="space-around"
+                    justifyContent="space-around"
                     alignItems="center"
                     style={{ marginTop: "3%" }}
                 >

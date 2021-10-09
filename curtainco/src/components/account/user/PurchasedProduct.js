@@ -23,7 +23,7 @@ function PurchasedProduct({ qty, product }) {
             <Grid
                 item
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={isMobile ? 1 : 2}
             >
@@ -42,7 +42,7 @@ function PurchasedProduct({ qty, product }) {
                     </Grid>
                 )}
 
-                <Grid item container justify="flex-start" xs={6} sm={2}>
+                <Grid item container justifyContent="flex-start" xs={6} sm={2}>
                     <Grid item>
                         <img
                             src={
@@ -90,7 +90,7 @@ function PurchasedProduct({ qty, product }) {
                     item
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     xs={12}
                     sm={4}

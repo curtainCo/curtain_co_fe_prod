@@ -39,15 +39,19 @@ function Home() {
                     <Grid
                         container
                         alignItems="center"
-                        justify="center"
+                        justifyContent="center"
                         className={classes.homeCont}
                     >
-                        <Grid container justify="center" alignItems="center">
+                        <Grid
+                            container
+                            justifyContent="center"
+                            alignItems="center"
+                        >
                             <Grid
                                 item
                                 xs={6}
                                 container
-                                justify="center"
+                                justifyContent="center"
                                 alignItems="center"
                                 style={{
                                     backgroundColor: `${theme.palette.background.default}`,
@@ -70,7 +74,7 @@ function Home() {
                                 item
                                 xs={6}
                                 container
-                                justify="center"
+                                justifyContent="center"
                                 alignItems="center"
                                 style={{
                                     backgroundColor: `${theme.palette.primary.veryLight}`,
@@ -97,7 +101,7 @@ function Home() {
                 <Grid
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                 >
                     <Grid
@@ -125,7 +129,7 @@ function Home() {
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         xs={12}
                         sm={8}

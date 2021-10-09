@@ -19,13 +19,13 @@ function Success() {
             container
             direction={isMobile ? "column-reverse" : "row"}
             item
-            justify="center"
+            justifyContent="center"
             alignItems="flex-start"
             spacing={2}
             xs={12}
             sm={11}
         >
-            <Grid item container justify="center" sm={6}>
+            <Grid item container justifyContent="center" sm={6}>
                 <img
                     src="https://images.unsplash.com/photo-1508024043938-d0cfe70cf65d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=981&q=80"
                     alt="Reflecting success"
@@ -36,7 +36,7 @@ function Success() {
                 <Grid
                     item
                     container
-                    justify={isMobile ? "flex-start" : "center"}
+                    justifyContent={isMobile ? "flex-start" : "center"}
                     // alignItems="center"
                 >
                     <Typography

@@ -93,7 +93,7 @@ export default function AdminTabs({ tabValue, handleChange }) {
                 </Tabs>
             </AppBar>
             <TabPanel value={tabValue} index={0}>
-                <Grid container justify="center" alignItems="flex-start">
+                <Grid container justifyContent="center" alignItems="flex-start">
                     <Grid item xs={6}>
                         <AddProduct />
                     </Grid>
@@ -102,7 +102,7 @@ export default function AdminTabs({ tabValue, handleChange }) {
             <TabPanel value={tabValue} index={1}>
                 <Grid
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     spacing={2}
                 >
@@ -114,7 +114,7 @@ export default function AdminTabs({ tabValue, handleChange }) {
             <TabPanel value={tabValue} index={2}>
                 <Grid
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     spacing={2}
                 >
@@ -136,7 +136,7 @@ export default function AdminTabs({ tabValue, handleChange }) {
             <TabPanel value={tabValue} index={3}>
                 <Grid
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     spacing={2}
                 >

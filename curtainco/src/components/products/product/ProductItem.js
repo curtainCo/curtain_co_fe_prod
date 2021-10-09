@@ -68,7 +68,7 @@ function ProductItem({ productData }) {
                         {capitalize(productData.name)}
                     </Typography>
                     <Grid container spacing={1}>
-                        <Grid item container justify="space-between">
+                        <Grid item container justifyContent="space-between">
                             <Typography
                                 variant="body2"
                                 className={classes.cardContentText}
@@ -86,9 +86,9 @@ function ProductItem({ productData }) {
                         container
                         direction="row"
                         alignItems="center"
-                        justify="space-between"
+                        justifyContent="space-between"
                     >
-                        <Grid item xs container justify="center">
+                        <Grid item xs container justifyContent="center">
                             <AddToCartButton
                                 icon={true}
                                 text="Cart"
@@ -96,7 +96,7 @@ function ProductItem({ productData }) {
                                 handleClick={handleCartClick}
                             />
                         </Grid>
-                        <Grid item xs container justify="center">
+                        <Grid item xs container justifyContent="center">
                             <Button
                                 size="small"
                                 color="primary"

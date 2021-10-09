@@ -43,7 +43,7 @@ function TrackForm({
     return (
         <>
             <Box pb={1}>
-                <Grid container justify="center" alignItems="center">
+                <Grid container justifyContent="center" alignItems="center">
                     <Grid item xs={3}>
                         <img
                             src={
@@ -62,7 +62,7 @@ function TrackForm({
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         xs={9}
                         spacing={2}
@@ -85,7 +85,12 @@ function TrackForm({
                     </Grid>
                 </Grid>
             </Box>
-            <Grid container spacing={1} justify="center" alignItems="center">
+            <Grid
+                container
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Grid item xs={12}>
                     <TextField
                         id="track-input"
@@ -134,7 +139,7 @@ function TrackForm({
                 <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     xs={12}
                 >
@@ -214,7 +219,7 @@ function TrackForm({
                     <Grid
                         item
                         container
-                        justify="space-between"
+                        justifyContent="space-between"
                         alignItems="center"
                         xs={12}
                         style={{ paddingTop: "5%" }}
@@ -233,13 +238,12 @@ function TrackForm({
                             )}
                         </Grid>
 
-                        {isLoading 
-                        ? (
+                        {isLoading ? (
                             <Grid item>
                                 <LoadingSymbol />
                             </Grid>
-                        )
-                            : (<Grid item>
+                        ) : (
+                            <Grid item>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -247,10 +251,8 @@ function TrackForm({
                                 >
                                     {buttonText}
                                 </Button>
-                            </Grid>)
-                        }
-
-                        
+                            </Grid>
+                        )}
                     </Grid>
                 )}
             </Grid>

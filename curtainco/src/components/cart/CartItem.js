@@ -31,13 +31,13 @@ function CartItem({
     const isMobile = useMediaQuery(theme.breakpoints.only("xs"))
 
     return (
-        <Grid item xs container justify="center">
+        <Grid item xs container justifyContent="center">
             <Paper className={classes.cartItemCont}>
                 <Grid
                     item
                     xs
                     container
-                    justify="space-between"
+                    justifyContent="space-between"
                     alignItems="center"
                     key={`cart-item-${itemInCart.id}`}
                 >
@@ -46,7 +46,7 @@ function CartItem({
                         container
                         xs={12}
                         sm={2}
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                     >
                         <Grid item xs={10} sm={12}>
@@ -64,7 +64,12 @@ function CartItem({
                         {/* IF MOBILE, DISPLAY REMOVE FROM CART BUTTON TOP RIGHT */}
 
                         {isMobile && (
-                            <Grid item xs={2} container justify="flex-end">
+                            <Grid
+                                item
+                                xs={2}
+                                container
+                                justifyContent="flex-end"
+                            >
                                 <IconButton
                                     variant="outlined"
                                     size="small"
@@ -83,7 +88,7 @@ function CartItem({
                         item
                         container
                         direction="column"
-                        justify="flex-start"
+                        justifyContent="flex-start"
                         alignItems="flex-start"
                         xs={12}
                         sm={10}
@@ -92,7 +97,7 @@ function CartItem({
                         <Grid
                             item
                             container
-                            justify="flex-start"
+                            justifyContent="flex-start"
                             alignItems="flex-start"
                             xs={12}
                         >
@@ -220,7 +225,7 @@ function CartItem({
                                 xs={6}
                                 sm={4}
                                 container
-                                justify="center"
+                                justifyContent="center"
                                 alignItems="center"
                                 className={
                                     isMobile ? classes.cartItemQtyCont : ""
@@ -231,7 +236,7 @@ function CartItem({
                                     xs={4}
                                     sm={3}
                                     container
-                                    justify="center"
+                                    justifyContent="center"
                                 >
                                     <IconButton
                                         size="small"
@@ -247,7 +252,7 @@ function CartItem({
                                     xs={4}
                                     sm={3}
                                     container
-                                    justify="center"
+                                    justifyContent="center"
                                 >
                                     <Typography>x{itemInCart.qty}</Typography>
                                 </Grid>
@@ -256,7 +261,7 @@ function CartItem({
                                     xs={4}
                                     sm={3}
                                     container
-                                    justify="center"
+                                    justifyContent="center"
                                 >
                                     <IconButton
                                         size="small"
@@ -274,7 +279,7 @@ function CartItem({
                                 xs={6}
                                 sm={3}
                                 container
-                                justify="center"
+                                justifyContent="center"
                                 alignItems="center"
                                 className={
                                     isMobile ? classes.cartItemQtyCont : ""
@@ -292,7 +297,7 @@ function CartItem({
                                     sm={1}
                                     container
                                     alignItems="center"
-                                    justify="center"
+                                    justifyContent="center"
                                 >
                                     <IconButton
                                         variant="outlined"

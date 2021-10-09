@@ -33,7 +33,7 @@ export default function CustomAccordion({
         <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             spacing={isMobile ? 1 : 5}
             direction={isMobile ? "column" : "row"}
@@ -53,7 +53,7 @@ export default function CustomAccordion({
                         <AccordionDetails className={classes.accordionDetails}>
                             <Grid
                                 container
-                                justify="space-around"
+                                justifyContent="space-around"
                                 alignItems="center"
                                 // spacing={3}
                             >

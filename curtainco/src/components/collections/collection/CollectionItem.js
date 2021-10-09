@@ -23,7 +23,7 @@ function CollectionItem({ data }) {
     return (
         <Paper className={classes.paper}>
             <Grid item container spacing={2}>
-                <Grid item container justify="center" xs={12} sm={4}>
+                <Grid item container justifyContent="center" xs={12} sm={4}>
                     <img
                         src={data.imgUrl === "" ? "/no-image.png" : data.imgUrl}
                         alt={data.name}
@@ -42,7 +42,7 @@ function CollectionItem({ data }) {
                     sm={8}
                     spacing={2}
                 >
-                    <Grid item container justify="center">
+                    <Grid item container justifyContent="center">
                         <Typography
                             variant="h4"
                             component="h4"
@@ -60,7 +60,12 @@ function CollectionItem({ data }) {
                         </Typography>
                     </Grid>
 
-                    <Grid item container justify="flex-end" alignItems="center">
+                    <Grid
+                        item
+                        container
+                        justifyContent="flex-end"
+                        alignItems="center"
+                    >
                         <Link
                             className={classes.collectionLink}
                             to={`/collections/customise/${data._id}`}

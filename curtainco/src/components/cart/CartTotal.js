@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 // STYLES
-import { Grid, Button, Typography } from "@material-ui/core";
+import { Grid, Button, Typography } from "@material-ui/core"
 // PACKAGES
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 // STATE
-import { useCurtainContext } from "../../config/CurtainCoContext";
+import { useCurtainContext } from "../../config/CurtainCoContext"
 // COMPONENTS
-import CustomAlert from "../reusable/CustomAlert";
+import CustomAlert from "../reusable/CustomAlert"
 
 function CartTotal({
     total,
@@ -16,7 +16,7 @@ function CartTotal({
     setPaymentFailedOrCancelled,
     isMobile,
 }) {
-    const { state } = useCurtainContext();
+    const { state } = useCurtainContext()
 
     return (
         <Grid item container direction="column" spacing={2}>
@@ -32,13 +32,13 @@ function CartTotal({
                 </Grid>
             )}
 
-            <Grid item container justify="center" alignItems="center">
-                <Grid item xs container justify="center">
+            <Grid item container justifyContent="center" alignItems="center">
+                <Grid item xs container justifyContent="center">
                     <Typography variant="h4" component="h4">
                         Subtotal
                     </Typography>
                 </Grid>
-                <Grid item xs container justify="center">
+                <Grid item xs container justifyContent="center">
                     <Typography variant="h5" component="h5">
                         ${total.toFixed(2)}
                     </Typography>
@@ -46,18 +46,18 @@ function CartTotal({
             </Grid>
 
             {state.currentUser === null && (
-                <Grid item xs container justify="center">
+                <Grid item xs container justifyContent="center">
                     <Typography>{loginText}</Typography>
                 </Grid>
             )}
             <Grid
                 item
                 container
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 spacing={4}
             >
-                <Grid item xs={12} sm={6} container justify="center">
+                <Grid item xs={12} sm={6} container justifyContent="center">
                     <Link to="/products" className="link">
                         <Button variant="outlined" color="primary" size="large">
                             Continue Shopping
@@ -70,14 +70,14 @@ function CartTotal({
                     xs={12}
                     sm={6}
                     container
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                 >
                     {children}
                 </Grid>
             </Grid>
         </Grid>
-    );
+    )
 }
 
-export default CartTotal;
+export default CartTotal

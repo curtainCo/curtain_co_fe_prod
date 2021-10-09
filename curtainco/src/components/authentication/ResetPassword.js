@@ -59,7 +59,7 @@ export default function ResetPassword() {
                 "Success. Please check your emails to reset your password."
             )
         } catch (error) {
-            console.log(`An error ocurred on login. ${error}`)
+            console.log(`Something went wrong: ${error}`)
             setErrorSnackBar(dispatch, error)
             setHelperText({ ...helperText, email: error })
         }
@@ -126,7 +126,7 @@ export default function ResetPassword() {
                                     </Button>
                                 </Container>
 
-                                <Grid container justify="flex-end">
+                                <Grid container justifyContent="flex-end">
                                     <Link
                                         className={classes.loginLink}
                                         to={{

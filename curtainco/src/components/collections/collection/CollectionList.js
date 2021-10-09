@@ -20,7 +20,7 @@ function CollectionList({ collections }) {
         <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             key={`collection-${index}`}
             xs={12}

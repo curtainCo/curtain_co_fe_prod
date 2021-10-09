@@ -12,12 +12,12 @@ function WhyCurtains() {
             item
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             spacing={2}
             className={classes.WhyCurtainsCont}
         >
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
                 <Typography
                     variant="h3"
                     component="h3"

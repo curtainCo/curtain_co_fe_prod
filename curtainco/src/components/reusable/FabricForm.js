@@ -33,7 +33,7 @@ function FabricForm({
     return (
         <>
             <Box pb={1}>
-                <Grid container justify="center" alignItems="center">
+                <Grid container justifyContent="center" alignItems="center">
                     <Grid item xs={3}>
                         <img
                             src={
@@ -52,7 +52,7 @@ function FabricForm({
                     <Grid
                         item
                         container
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         xs={9}
                         spacing={2}
@@ -75,7 +75,12 @@ function FabricForm({
                     </Grid>
                 </Grid>
             </Box>
-            <Grid container spacing={1} justify="center" alignItems="center">
+            <Grid
+                container
+                spacing={1}
+                justifyContent="center"
+                alignItems="center"
+            >
                 <Grid item xs={12}>
                     <TextField
                         id="fabric-input"
@@ -172,7 +177,7 @@ function FabricForm({
                     <Grid
                         item
                         container
-                        justify="space-between"
+                        justifyContent="space-between"
                         alignItems="center"
                         xs={12}
                         style={{ paddingTop: "5%" }}
@@ -191,13 +196,12 @@ function FabricForm({
                             )}
                         </Grid>
 
-                        {isLoading 
-                        ? (
+                        {isLoading ? (
                             <Grid item>
                                 <LoadingSymbol />
                             </Grid>
-                        )
-                        : (<Grid item>
+                        ) : (
+                            <Grid item>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -205,10 +209,8 @@ function FabricForm({
                                 >
                                     {buttonText}
                                 </Button>
-                            </Grid>)
-                            }
-
-                        
+                            </Grid>
+                        )}
                     </Grid>
                 )}
             </Grid>

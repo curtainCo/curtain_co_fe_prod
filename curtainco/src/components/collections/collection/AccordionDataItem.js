@@ -43,7 +43,7 @@ function AccordionDataItem({ data, handleCustomization }) {
             item
             container
             direction="column"
-            justify="space-around"
+            justifyContent="space-around"
             xs={6}
             lg={data.length === 4 ? 3 : 4} // this is to even out spacing for 1 or 3 items
             key={`${product._id},${index}`}
@@ -51,7 +51,7 @@ function AccordionDataItem({ data, handleCustomization }) {
             <Grid
                 item
                 container
-                justify="center"
+                justifyContent="center"
                 onClick={handleSelected}
                 id={`${product._id},${index},${product.category}`}
             >
@@ -73,7 +73,7 @@ function AccordionDataItem({ data, handleCustomization }) {
                     }}
                 />
             </Grid>
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
                 <Typography
                     variant="subtitle1"
                     component="p"

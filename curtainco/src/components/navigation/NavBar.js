@@ -100,10 +100,15 @@ function NavBar() {
                             <Grid
                                 item
                                 container
-                                justify="space-around"
+                                justifyContent="space-around"
                                 alignItems="center"
                             >
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         <Link
                                             className={classes.navLinks}
@@ -118,7 +123,12 @@ function NavBar() {
                                         </Link>
                                     </Grid>
                                 </Grid>
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         <Link
                                             className={classes.navLinks}
@@ -134,7 +144,12 @@ function NavBar() {
                                     </Grid>
                                 </Grid>
 
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         <Link
                                             className={classes.navLinks}
@@ -150,7 +165,12 @@ function NavBar() {
                                     </Grid>
                                 </Grid>
 
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         <Link
                                             className={classes.navbarLogoCont}
@@ -167,7 +187,12 @@ function NavBar() {
                                     </Grid>
                                 </Grid>
 
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         <Link
                                             className={classes.navLinks}
@@ -187,13 +212,18 @@ function NavBar() {
                                     </Grid>
                                 </Grid>
 
-                                <Grid item container justify="center" xs={1}>
+                                <Grid
+                                    item
+                                    container
+                                    justifyContent="center"
+                                    xs={1}
+                                >
                                     <Grid item>
                                         {state.currentUser !== null ? (
                                             <Grid
                                                 item
                                                 container
-                                                justify="center"
+                                                justifyContent="center"
                                             >
                                                 <Link
                                                     className={classes.navLinks}
@@ -214,7 +244,7 @@ function NavBar() {
                                             <Grid
                                                 item
                                                 container
-                                                justify="center"
+                                                justifyContent="center"
                                             >
                                                 <Link
                                                     className={classes.navLinks}
@@ -244,7 +274,7 @@ function NavBar() {
                                 <Grid
                                     item
                                     container
-                                    justify="center"
+                                    justifyContent="center"
                                     alignItems="center"
                                     xs={1}
                                 >
@@ -300,7 +330,7 @@ function NavBar() {
                             <Grid
                                 item
                                 container
-                                justify="center"
+                                justifyContent="center"
                                 alignItems="center"
                                 xs={12}
                             >

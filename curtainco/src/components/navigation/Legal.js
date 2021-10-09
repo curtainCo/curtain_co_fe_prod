@@ -18,7 +18,7 @@ function Legal() {
             container
             direction="column"
             alignItems={isMobileOrTabletPortrait ? "center" : "flex-end"}
-            justify="center"
+            justifyContent="center"
             spacing={1}
         >
             <Grid item>

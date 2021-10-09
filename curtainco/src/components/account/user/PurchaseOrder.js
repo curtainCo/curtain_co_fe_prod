@@ -48,17 +48,17 @@ function PurchaseOrder({ order }) {
                 </Typography>
             </Grid>
 
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
                 <Grid
                     item
                     container
                     direction={isMobile ? "row" : "column"}
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     xs={12}
                     sm={4}
                 >
-                    <Grid item container justify="center" xs={6} sm={12}>
+                    <Grid item container justifyContent="center" xs={6} sm={12}>
                         <img
                             src={
                                 firstItemInOrder.current.imgUrl === undefined
@@ -79,7 +79,7 @@ function PurchaseOrder({ order }) {
                             item
                             container
                             xs={6}
-                            justify="center"
+                            justifyContent="center"
                             alignItems="center"
                         >
                             <Button color="primary" onClick={handleItemClick}>
@@ -93,7 +93,7 @@ function PurchaseOrder({ order }) {
                     item
                     container
                     direction="column"
-                    justify={isMobile ? "center" : "flex-start"}
+                    justifyContent={isMobile ? "center" : "flex-start"}
                     alignItems="center"
                     xs={12}
                     sm={4}
@@ -101,7 +101,7 @@ function PurchaseOrder({ order }) {
                     <Grid
                         item
                         container
-                        justify={isMobile ? "center" : "flex-start"}
+                        justifyContent={isMobile ? "center" : "flex-start"}
                     >
                         <Typography
                             variant="h6"
@@ -178,7 +178,7 @@ function PurchaseOrder({ order }) {
                         item
                         container
                         xs={2}
-                        justify="flex-end"
+                        justifyContent="flex-end"
                         alignItems="center"
                     >
                         <Button color="primary" onClick={handleItemClick}>

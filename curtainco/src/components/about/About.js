@@ -23,7 +23,7 @@ function About() {
                     <Grid
                         container
                         direction="column"
-                        justify="center"
+                        justifyContent="center"
                         alignItems="center"
                         spacing={5}
                         className={classes.aboutMeCont}
@@ -40,7 +40,7 @@ function About() {
                 <Grid
                     container
                     direction="column"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="center"
                     spacing={3}
                     className={classes.aboutMeCont}

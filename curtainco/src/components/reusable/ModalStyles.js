@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
     modal: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContentContent: "center",
         border: "none",
         zIndex: theme.zIndex.modal,
     },
