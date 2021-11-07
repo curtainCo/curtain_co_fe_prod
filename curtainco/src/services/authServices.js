@@ -40,7 +40,7 @@ function sendConfirmationEmail(email) {
 
 function checkResetPasswordToken(token) {
     // call to server to check if token is valid
-    const resp = api.get("/forgot-password", { resetPasswordToken: token })
+    const resp = api.get("/reset-password", { resetPasswordToken: token })
     if (resp.status !== 200) {
         console.log("token not valid")
         throw new Error(
@@ -52,7 +52,7 @@ function checkResetPasswordToken(token) {
 
 function resetPassword(payload) {
     // call to server to update password
-    return api.post("/update-password-by-email", payload)
+    return api.post("/reset-password", payload)
 }
 
 export {

@@ -43,16 +43,16 @@ export default function ResetPassword() {
     async function handleSendConfirmation(e) {
         e.preventDefault()
         setIsLoading(true)
-        const emailCheck = loginFieldAreBad(email, "email")
+        const emailCheckIsBad = loginFieldAreBad(email, "email")
 
-        if (emailCheck) {
-            setHelperText({ ...helperText, email: emailCheck })
+        if (emailCheckIsBad) {
+            setHelperText({ ...helperText, email: emailCheckIsBad })
             setIsLoading(false)
             return
         }
 
         try {
-            await sendConfirmationEmail(email)
+            await sendConfirmationEmail({ email })
             setEmail("")
             setSuccessSnackBar(
                 dispatch,
@@ -60,8 +60,10 @@ export default function ResetPassword() {
             )
         } catch (error) {
             console.log(`Something went wrong: ${error}`)
-            setErrorSnackBar(dispatch, error)
-            setHelperText({ ...helperText, email: error })
+            setErrorSnackBar(
+                dispatch,
+                "Something went wrong. Confirmation email failed to send."
+            )
         }
         setIsLoading(false)
     }

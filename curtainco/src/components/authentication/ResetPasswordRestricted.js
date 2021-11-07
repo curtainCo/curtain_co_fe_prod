@@ -38,7 +38,7 @@ export default function ResetPasswordRestricted() {
 
     const { state, dispatch } = useCurtainContext()
     const [user, setUser] = useState({
-        email: "",
+        id: "",
         password: "",
         confirmPassword: "",
     })
@@ -54,7 +54,7 @@ export default function ResetPasswordRestricted() {
         ;(async () => {
             try {
                 const resp = await checkResetPasswordToken(token)
-                setUser({ ...user, email: resp.data })
+                setUser({ ...user, id: resp.userId })
             } catch (error) {
                 history.push("/")
                 setErrorSnackBar(dispatch, error.message)
@@ -91,7 +91,7 @@ export default function ResetPasswordRestricted() {
 
         try {
             await resetPassword({
-                email: user.email,
+                id: user.id,
                 password: user.password,
             })
             setSuccessSnackBar(
