@@ -68,8 +68,8 @@ export default function SignIn() {
 
         try {
             let resp = await loginUser(user)
-            // console.log("---CURRENT USER---")
-            // console.log(resp.data)
+            console.log("---CURRENT USER---")
+            console.log(resp.data)
             let currentUser = resp.data.user
             if (currentUser && resp.status === 200) {
                 // fires a setTimeout that would refresh the page based on rememberMe
@@ -96,7 +96,7 @@ export default function SignIn() {
                 setPassword("")
             }
         } catch (error) {
-            loginError = `An error ocurred on login. ${error.response}`
+            loginError = `An error ocurred on login. ${error.message}`
             console.log(loginError)
             setErrorSnackBar(
                 dispatch,

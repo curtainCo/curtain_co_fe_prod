@@ -49,7 +49,6 @@ function ProductItem({ productData }) {
         setSuccessSnackBar(dispatch, "Success: Item was added to the cart")
     }
 
-    console.log(productData)
     return (
         <div className={classes.productItemCont}>
             <Card className={classes.card}>

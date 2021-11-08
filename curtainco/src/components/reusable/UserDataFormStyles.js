@@ -33,6 +33,15 @@ const useStyles = makeStyles((theme) => ({
     userDataFormHeader: {
         fontFamily: theme.typography.fontFamily.split(",")[2],
         color: theme.palette.primary.light,
+        textAlign: "center",
+        marginTop: theme.spacing(2),
+    },
+    passwordResetMessage: {
+        fontStyle: "italic",
+        fontFamily: theme.typography.fontFamily.split(",")[1],
+        color: theme.palette.grey[700],
+        textAlign: "center",
+        marginTop: theme.spacing(4),
     },
 }))
 

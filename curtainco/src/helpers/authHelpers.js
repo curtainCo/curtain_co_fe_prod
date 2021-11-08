@@ -32,8 +32,6 @@ function passwordHasBadFormatting(field) {
 }
 
 function areAnyFieldsInUserDataFormAreEmpty(userDetails) {
-    console.log({ userDetails })
-
     let errorObject = {}
 
     for (const key in userDetails) {

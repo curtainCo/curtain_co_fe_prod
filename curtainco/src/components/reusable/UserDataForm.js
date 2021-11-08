@@ -163,7 +163,6 @@ export default function UserDataForm({
 
     async function handleSubmitForm(e) {
         e.preventDefault()
-        console.log(userData)
         let errorOrResp
 
         let tempUserData = {
@@ -222,8 +221,6 @@ export default function UserDataForm({
             // THIS IS DONE TO DYNAMICALLY SHOW HELPER TEXT FOR THE FIELDS
             delete tempUserData.firstName
             delete tempUserData.lastName
-
-            console.log({ tempUserData })
 
             // SUBMIT OBJECT TO PARENT WHICH WILL SUBMIT TO DATABASE
             errorOrResp = await handleSubmitFunctionFromParent(tempUserData)

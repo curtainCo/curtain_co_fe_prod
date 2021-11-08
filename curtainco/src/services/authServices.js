@@ -1,21 +1,19 @@
 import api from "../config/api"
 
-async function registerUser(userInfo) {
+async function registerUser(user) {
     // call to server to login user
     // return user info if successful and error if not
-    const response = await api.post("/account/register", userInfo)
+    const response = await api.post("/account/register", user)
     // console.log(response)
 
     // console.log("user created")
     return response
 }
 
-async function loginUser(userInfo) {
+async function loginUser(user) {
     // call to server to login user
     // return user info if successful and error if not
-    const response = await api.post("/account", userInfo)
-    // console.log("got user back from server")
-    return response
+    return await api.post("/account", user)
 }
 
 async function logoutUser() {
@@ -32,15 +30,20 @@ async function getLoggedInUserFromHomeRoute() {
     return response
 }
 
-function sendConfirmationEmail(email) {
+async function sendConfirmationEmail(email) {
     // call to server to check if valid email
     // sends email or returns error
-    return api.post("/forgot-password", email)
+    try {
+        return await api.post("/forgot-password", email)
+    } catch (error) {
+        console.log(error)
+        return false
+    }
 }
 
-function checkResetPasswordToken(token) {
+async function checkResetPasswordToken(token) {
     // call to server to check if token is valid
-    const resp = api.get("/reset-password", { resetPasswordToken: token })
+    const resp = await api.get(`/reset-password?resetPasswordToken=${token}`)
     if (resp.status !== 200) {
         console.log("token not valid")
         throw new Error(
@@ -50,9 +53,9 @@ function checkResetPasswordToken(token) {
     return resp
 }
 
-function resetPassword(payload) {
+function resetPassword(updatedUserInfo) {
     // call to server to update password
-    return api.post("/reset-password", payload)
+    return api.post("/reset-password", updatedUserInfo)
 }
 
 export {

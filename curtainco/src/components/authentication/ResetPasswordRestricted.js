@@ -24,7 +24,11 @@ import {
     Container,
     useTheme,
     useMediaQuery,
+    IconButton,
 } from "@material-ui/core"
+import Visibility from "@material-ui/icons/Visibility"
+import VisibilityOff from "@material-ui/icons/VisibilityOff"
+
 import useStyles from "../reusable/UserDataFormStyles"
 // ICONS
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
@@ -49,19 +53,26 @@ export default function ResetPasswordRestricted() {
         confirmPassword: "",
     })
 
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
     useEffect(() => {
         setIsLoading(true)
         ;(async () => {
             try {
                 const resp = await checkResetPasswordToken(token)
-                setUser({ ...user, id: resp.userId })
+                console.log(resp)
+                setUser({ ...user, id: resp.data.userId })
             } catch (error) {
                 history.push("/")
                 setErrorSnackBar(dispatch, error.message)
             }
         })()
         setIsLoading(false)
-    }, [user, token, history, dispatch])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    console.log(user)
 
     async function handleResetPassword(e) {
         e.preventDefault()
@@ -90,10 +101,11 @@ export default function ResetPasswordRestricted() {
         }
 
         try {
-            await resetPassword({
+            const resp = await resetPassword({
                 id: user.id,
                 password: user.password,
             })
+            console.log(resp)
             setSuccessSnackBar(
                 dispatch,
                 "Success. Your password has been updated. Please log in again."
@@ -114,6 +126,14 @@ export default function ResetPasswordRestricted() {
     function handleConfirmPasswordChange(e) {
         setUser({ ...user, confirmPassword: e.target.value })
         setHelperText({ ...helperText, confirmPassword: "" })
+    }
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword)
+    }
+
+    const handleClickShowConfirmPassword = () => {
+        showConfirmPassword(!showConfirmPassword)
     }
 
     return (
@@ -149,6 +169,7 @@ export default function ResetPasswordRestricted() {
                                     margin="normal"
                                     required
                                     fullWidth
+                                    type={showPassword ? "text" : "password"}
                                     id="password"
                                     label="New Password"
                                     name="password"
@@ -156,6 +177,24 @@ export default function ResetPasswordRestricted() {
                                     onChange={handlePasswordChange}
                                     error={helperText.password !== ""}
                                     helperText={helperText.password}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <IconButton
+                                                onClick={
+                                                    handleClickShowPassword
+                                                }
+                                            >
+                                                {showPassword ? (
+                                                    <VisibilityOff />
+                                                ) : (
+                                                    <Visibility />
+                                                )}
+                                            </IconButton>
+                                        ),
+                                        classes: {
+                                            adornedEnd: classes.adornedEnd,
+                                        },
+                                    }}
                                 />
 
                                 <TextField
@@ -164,11 +203,34 @@ export default function ResetPasswordRestricted() {
                                     required
                                     fullWidth
                                     id="password"
+                                    type={
+                                        showConfirmPassword
+                                            ? "text"
+                                            : "password"
+                                    }
                                     label="Confirm Password"
                                     name="confirm-password"
                                     onChange={handleConfirmPasswordChange}
                                     error={helperText.confirmPassword !== ""}
                                     helperText={helperText.confirmPassword}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <IconButton
+                                                onClick={
+                                                    handleClickShowConfirmPassword
+                                                }
+                                            >
+                                                {showConfirmPassword ? (
+                                                    <VisibilityOff />
+                                                ) : (
+                                                    <Visibility />
+                                                )}
+                                            </IconButton>
+                                        ),
+                                        classes: {
+                                            adornedEnd: classes.adornedEnd,
+                                        },
+                                    }}
                                 />
 
                                 <Container maxWidth="sm">

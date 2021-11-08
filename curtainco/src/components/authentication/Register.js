@@ -68,7 +68,10 @@ export default function SignUp() {
                 registerError = `An error ocurred on register. ${error.response.data.message}`
                 console.log(registerError)
                 console.log(error.response)
-                setErrorSnackBar(dispatch, "Error: This email already exists")
+                setErrorSnackBar(
+                    dispatch,
+                    `Error: ${error.response.data.message}`
+                )
             })
 
         setIsLoading(false)

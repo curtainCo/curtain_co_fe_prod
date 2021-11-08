@@ -21,19 +21,24 @@ import {
     Container,
     useTheme,
     useMediaQuery,
+    ma,
 } from "@material-ui/core"
 import useStyles from "../reusable/UserDataFormStyles"
 // ICONS
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
 
 export default function ResetPassword() {
-    const classes = useStyles()
+    const classes = useStyles({})
     const history = useHistory()
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.only("xs"))
 
     const { state, dispatch } = useCurtainContext()
     const [email, setEmail] = useState("")
+    const [
+        successfulConfirmationEmailSent,
+        setSuccessfulConfirmationEmailSent,
+    ] = useState(false)
     const [prevUrl, setPrevUrl] = useState("/")
     const [isLoading, setIsLoading] = useState(false)
     const [helperText, setHelperText] = useState({
@@ -51,21 +56,23 @@ export default function ResetPassword() {
             return
         }
 
-        try {
-            await sendConfirmationEmail({ email })
-            setEmail("")
+        const resp = await sendConfirmationEmail({ email })
+        console.log(resp.status === 202)
+        if (resp) {
             setSuccessSnackBar(
                 dispatch,
                 "Success. Please check your emails to reset your password."
             )
-        } catch (error) {
-            console.log(`Something went wrong: ${error}`)
+            setSuccessfulConfirmationEmailSent(true)
+        } else {
             setErrorSnackBar(
                 dispatch,
                 "Something went wrong. Confirmation email failed to send."
             )
         }
+        setEmail("")
         setIsLoading(false)
+        return
     }
 
     function handleEmailChange(e) {
@@ -79,73 +86,94 @@ export default function ResetPassword() {
                 <Redirect to={prevUrl} />
             ) : (
                 <Container maxWidth="xs">
-                    <div className={classes.paper}>
-                        <Avatar className={classes.avatar}>
-                            <LockOutlinedIcon />
-                        </Avatar>
-
-                        <Typography
-                            component="h2"
-                            variant="h5"
-                            className={classes.userDataFormHeader}
-                            style={{ fontSize: isMobile ? 32 : 48 }}
-                        >
-                            Reset Password
-                        </Typography>
-
-                        {isLoading ? (
-                            <LoadingSymbol />
-                        ) : (
-                            <form
-                                className={classes.form}
-                                noValidate
-                                onSubmit={handleSendConfirmation}
+                    {successfulConfirmationEmailSent ? (
+                        <div className={classes.paper}>
+                            <Typography
+                                component="h2"
+                                variant="h5"
+                                className={classes.userDataFormHeader}
+                                style={{ fontSize: isMobile ? 32 : 48 }}
                             >
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    autoFocus
-                                    onChange={handleEmailChange}
-                                    error={helperText.email !== ""}
-                                    helperText={helperText.email}
-                                />
+                                Success
+                            </Typography>
+                            <Typography
+                                className={classes.passwordResetMessage}
+                            >
+                                Your password reset email has been sent. Please
+                                check your emails, including your spam folder,
+                                where you will find a link to reset your
+                                password.
+                            </Typography>
+                        </div>
+                    ) : (
+                        <div className={classes.paper}>
+                            <Avatar className={classes.avatar}>
+                                <LockOutlinedIcon />
+                            </Avatar>
 
-                                <Container maxWidth="sm">
-                                    <Button
-                                        type="submit"
+                            <Typography
+                                component="h2"
+                                variant="h5"
+                                className={classes.userDataFormHeader}
+                                style={{ fontSize: isMobile ? 32 : 48 }}
+                            >
+                                Reset Password
+                            </Typography>
+
+                            {isLoading ? (
+                                <LoadingSymbol />
+                            ) : (
+                                <form
+                                    className={classes.form}
+                                    noValidate
+                                    onSubmit={handleSendConfirmation}
+                                >
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
                                         fullWidth
-                                        variant="contained"
-                                        color="secondary"
-                                        className={classes.submit}
-                                    >
-                                        Send Confirmation Email
-                                    </Button>
-                                </Container>
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        autoFocus
+                                        onChange={handleEmailChange}
+                                        error={helperText.email !== ""}
+                                        helperText={helperText.email}
+                                    />
 
-                                <Grid container justifyContent="flex-end">
-                                    <Link
-                                        className={classes.loginLink}
-                                        to={{
-                                            pathname: "/register",
-                                            state: {
-                                                prevUrl: prevUrl,
-                                            },
-                                        }}
-                                    >
-                                        <Typography>
-                                            Don't have an account? Sign Up
-                                        </Typography>
-                                    </Link>
-                                </Grid>
-                            </form>
-                        )}
-                    </div>
+                                    <Container maxWidth="sm">
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            color="secondary"
+                                            className={classes.submit}
+                                        >
+                                            Send Confirmation Email
+                                        </Button>
+                                    </Container>
+
+                                    <Grid container justifyContent="flex-end">
+                                        <Link
+                                            className={classes.loginLink}
+                                            to={{
+                                                pathname: "/register",
+                                                state: {
+                                                    prevUrl: prevUrl,
+                                                },
+                                            }}
+                                        >
+                                            <Typography>
+                                                Don't have an account? Sign Up
+                                            </Typography>
+                                        </Link>
+                                    </Grid>
+                                </form>
+                            )}
+                        </div>
+                    )}
 
                     <Box mt={8}>
                         <Copyright />
